@@ -32,6 +32,7 @@ public class Piramida {
                 tab1[i][j] = 'x';
             }
         }
+       
         return tab1;
    }
 }
