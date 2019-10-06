@@ -3,7 +3,7 @@ package piramida;
 public class Piramida {
     public static void main(String[] args) {
         try {
-            printArray(piramida(6));
+            printArray(createPiramida(6));
         } catch (Exception ex) {
            System.err.print(ex.toString());
         }
@@ -11,14 +11,14 @@ public class Piramida {
 
    private static void printArray(char[][] array) {
 
-        for (int i = 0; i < array.length; ++i) {
-            for (int j = 0; j < array[0].length; ++j) {
-                System.out.print(array[i][j]);
-            }
-            System.out.println();
-        }
+       for (char[] chars : array) {
+           for (int j = 0; j < array[0].length; ++j) {
+               System.out.print(chars[j]);
+           }
+           System.out.println();
+       }
    }
-   private static char[][] piramida(int width) throws Exception  {
+   private static char[][] createPiramida(int width) throws Exception  {
         if (width % 2 == 0) {
             throw new Exception("Argument musi być nie parzysty bo sie wyjebie");
         }
