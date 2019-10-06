@@ -20,7 +20,7 @@ public class Piramida {
    }
    private static char[][] createPiramida(int width) throws Exception  {
         if (width % 2 == 0) {
-            throw new Exception("Argument musi być nie parzysty bo sie wyjebie");
+            throw new Exception("Argument musi być nie parzysty bo sie wywali");
         }
 
         int height = (width + 1) / 2;
