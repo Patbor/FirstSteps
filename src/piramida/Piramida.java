@@ -33,11 +33,6 @@ public class Piramida {
             }
         }
         return tab1;
-
-
-
-
-
    }
 }
 
