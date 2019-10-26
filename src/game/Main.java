@@ -55,16 +55,16 @@ public class Main {
                 b = computer.b;
             }
             gra[a][b] = "o".equals(choise) ? 'x' : 'o';
-            if (toWIn(gra, x, y, 'x')) {
-                infoAboutWin(choise, "o");
+            if (printGameResult(gra, x, y, 'x')) {
+                printResult(choise, "o");
                 if (end()) {
                     clearArray(gra, x, y);
                 } else {
                     break;
                 }
             }
-            if (toWIn(gra, x, y, 'x')) {
-                infoAboutWin(choise, "x");
+            if (printGameResult(gra, x, y, 'x')) {
+                printResult(choise, "x");
                 if (end()) {
                     clearArray(gra, x, y);
                 } else {
@@ -85,7 +85,7 @@ public class Main {
         }
     }
 
-    private static void infoAboutWin(String sign, String noughtsOrCrosses) {
+    private static void printResult(String sign, String noughtsOrCrosses) {
         System.out.println(noughtsOrCrosses.equals(sign) ? "Wygrałeś" : "Przegrałeś");
     }
 
@@ -136,37 +136,37 @@ public class Main {
     }
 
 
-    private static boolean toWIn(char[][] tablica, int SizeX, int SizeY, char noughtsOrCrosses) {
+    private static boolean printGameResult(char[][] tablica, int SizeX, int SizeY, char noughtsOrCrosses) {
 
-        int resultU1 = 0;
-        int resultU2 = 0;
+        int diagonal1 = 0;
+        int diagonal2= 0;
         for (int i = 0; i < SizeX; ++i) {
-            int resultW = 0;
-            int resultK = 0;
+            int row = 0;
+            int column = 0;
             for (int j = 0; j < SizeY; ++j) {
                 if (tablica[i][j] == noughtsOrCrosses) {
-                    ++resultW;
-                    if (resultW == 3) {
+                    ++row;
+                    if (row == 3) {
                         return true;
                     }
 
                 }
                 if (tablica[j][i] == noughtsOrCrosses) {
-                    ++resultK;
-                    if (resultK == 3) {
+                    ++column;
+                    if (column == 3) {
                         return true;
                     }
 
                 }
                 if (tablica[i][j] == noughtsOrCrosses && i == j) {
-                    ++resultU1;
-                    if (resultU1 == 3) {
+                    ++diagonal1;
+                    if (diagonal1 == 3) {
                         return true;
                     }
                 }
                 if (tablica[i][j] == noughtsOrCrosses && i + j == 2) {
-                    ++resultU2;
-                    if (resultU2 == 3) {
+                    ++diagonal2;
+                    if (diagonal2 == 3) {
                         return true;
                     }
                 }
