@@ -81,22 +81,38 @@ public class Snake {
                     array[headOfSnake.getX()][headOfSnake.getY() - 1] == appleOrBody && word.equals(LEFT.name()) ||
                     array[headOfSnake.getX()][headOfSnake.getY() + 1] == appleOrBody && word.equals(RIGHT.name());
         }
-        if (headOfSnake.getX() == 0 && !word.equals(UP.name())) {
+        if(headOfSnake.getX() == 0 && headOfSnake.getY() == 0 && !word.equals(UP.name()) && !word.equals(LEFT.name())){
+            return array[headOfSnake.getX() + 1][headOfSnake.getY()] == appleOrBody && word.equals(DOWN.name()) ||
+                    array[headOfSnake.getX()][headOfSnake.getY() + 1] == appleOrBody && word.equals(RIGHT.name());
+        }
+        if(headOfSnake.getX() == 0 && headOfSnake.getY() == column - 1 && !word.equals(UP.name()) && !word.equals(RIGHT.name())) {
+            return array[headOfSnake.getX() + 1][headOfSnake.getY()] == appleOrBody && word.equals(DOWN.name()) ||
+                    array[headOfSnake.getX()][headOfSnake.getY() - 1] == appleOrBody && word.equals(LEFT.name());
+        }
+        if(headOfSnake.getX() == row - 1 && headOfSnake.getY() == 0 && !word.equals(DOWN.name()) && !word.equals(LEFT.name())) {
+            return array[headOfSnake.getX() - 1][headOfSnake.getY()] == appleOrBody && word.equals(UP.name()) ||
+                    array[headOfSnake.getX()][headOfSnake.getY() + 1] == appleOrBody && word.equals(RIGHT.name());
+        }
+        if(headOfSnake.getX() == row - 1 && headOfSnake.getY() == column - 1 && !word.equals(DOWN.name()) && !word.equals(RIGHT.name())) {
+            return array[headOfSnake.getX() - 1][headOfSnake.getY()] == appleOrBody && word.equals(UP.name()) ||
+                    array[headOfSnake.getX()][headOfSnake.getY() - 1] == appleOrBody && word.equals(LEFT.name());
+        }
+        if (headOfSnake.getX() == 0 && !(headOfSnake.getY() == 0) && !(headOfSnake.getY() == column - 1) && !word.equals(UP.name()) )   {
             return array[headOfSnake.getX() + 1][headOfSnake.getY()] == appleOrBody && word.equals(DOWN.name()) ||
                     array[headOfSnake.getX()][headOfSnake.getY() - 1] == appleOrBody && word.equals(LEFT.name()) ||
                     array[headOfSnake.getX()][headOfSnake.getY() + 1] == appleOrBody && word.equals(RIGHT.name());
         }
-        if (headOfSnake.getX() == row - 1 && !word.equals(DOWN.name())) {
+        if (headOfSnake.getX() == row - 1 && !(headOfSnake.getY() == 0) && !(headOfSnake.getY() == column - 1) &&!word.equals(DOWN.name())) {
             return array[headOfSnake.getX() - 1][headOfSnake.getY()] == appleOrBody && word.equals(UP.name()) ||
                     array[headOfSnake.getX()][headOfSnake.getY() - 1] == appleOrBody && word.equals(LEFT.name()) ||
                     array[headOfSnake.getX()][headOfSnake.getY() + 1] == appleOrBody && word.equals(RIGHT.name());
         }
-        if(headOfSnake.getY() == 0 && !word.equals(LEFT.name())){
+        if(headOfSnake.getY() == 0 && !(headOfSnake.getX() == row - 1) && !(headOfSnake.getX() == 0) && !word.equals(LEFT.name())){
             return array[headOfSnake.getX() - 1][headOfSnake.getY()] == appleOrBody && word.equals(UP.name()) ||
                     array[headOfSnake.getX() + 1][headOfSnake.getY()] == appleOrBody && word.equals(DOWN.name()) ||
                     array[headOfSnake.getX()][headOfSnake.getY() + 1] == appleOrBody && word.equals(RIGHT.name());
         }
-        if(headOfSnake.getY() == column - 1 && !word.equals(RIGHT.name())){
+        if(headOfSnake.getY() == column - 1 && !(headOfSnake.getX() == 0) && !(headOfSnake.getX() == row - 1) && !word.equals(RIGHT.name())){
             return array[headOfSnake.getX() - 1][headOfSnake.getY()] == appleOrBody && word.equals(UP.name()) ||
                     array[headOfSnake.getX() + 1][headOfSnake.getY()] == appleOrBody && word.equals(DOWN.name()) ||
                     array[headOfSnake.getX()][headOfSnake.getY() - 1] == appleOrBody && word.equals(LEFT.name());
